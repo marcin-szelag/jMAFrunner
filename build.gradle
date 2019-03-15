@@ -1,0 +1,73 @@
+apply plugin: 'java-library'
+apply plugin: 'org.junit.platform.gradle.plugin'
+
+group = 'org.jmafrunner'
+version = '0.1.0'
+
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.2' //adds junitPlatformTest task
+	}
+}
+
+// In this section you declare where to find the dependencies of your project
+repositories {
+    //jcenter()
+    mavenCentral()
+    flatDir {
+       dirs 'lib'
+	}
+}
+
+dependencies {
+	testImplementation("org.junit.jupiter:junit-jupiter-api:5.0.2")
+	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.0.2")
+	
+	testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.0.2")
+	
+	testImplementation("org.mockito:mockito-core:2.23.4")
+	
+	// To use Log4J's LogManager
+	testRuntimeOnly("org.apache.logging.log4j:log4j-core:2.10.0") //licenced under Apache License 2.0; https://logging.apache.org/log4j/2.x/
+	testRuntimeOnly("org.apache.logging.log4j:log4j-jul:2.10.0") //licenced under Apache License 2.0; https://logging.apache.org/log4j/2.x/
+	
+	//implementation fileTree(dir: 'lib', include: '*.jar')
+	compile name: 'jRS'
+}
+
+junitPlatform {
+	// platformVersion '1.0.2'
+	filters {
+		engines {
+			// include 'junit-jupiter', 'junit-vintage'
+			// exclude 'custom-engine'
+		}
+		tags {
+			// include 'fast'
+			//exclude 'integration'
+		}
+		// includeClassNamePattern '.*Test'
+	}
+	enableStandardTestTask true
+	// reportsDir file('build/test-results/junit-platform') // this is the default
+	logManager 'org.apache.logging.log4j.jul.LogManager'
+}
+
+jar {
+	manifest {
+		attributes('Implementation-Title': project.name,
+				   'Implementation-Version': project.version)
+	}
+}
+
+task all(dependsOn: ["junitPlatformTest", "jar"], description: "Performs all tasks") {
+	group 'aggregate'
+	description 'Run tests, build jar'
+	
+	doLast {
+		println("Building jMAFrunner completed.")
+	}
+}
