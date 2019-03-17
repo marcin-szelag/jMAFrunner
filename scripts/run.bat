@@ -1,0 +1,1 @@
+jMAFrunner.bat "..\data\windsor.isf" standard 1.0 certain
