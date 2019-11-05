@@ -1,0 +1,12 @@
+Obsolete features of jMAF (w.r.t. develop version of jRS):
+
+a) CONSISTENCY_IN_POS as default setting for consistencyIn switch
+b) only border examples in approximations for VC-DRSA (VCDomLem.getModeOfPositiveExamplesForVCDRSA() == ALL_DIFFERENT_BORDER_POSITIVE_EXAMPLES),
+   both in standard and monotonic version
+c) missing values not handled (due to  a) and b))
+d) even for data without missing values, jMAF does not handle combination: 1.0 possible monotonic
+   (Exception: Approximated entity number 0 is not compatible with VC-DOMLEM implementation.)
+e) existing error in implementation of VC-DomLEM algorithm concerning initialization of rule's statistics (without respecting consistencyIn switch);
+  this bug was corrected only in commit bc78e14689bc3cd64c202993e402151b54e5f2e8,
+  but it does not affect jMAF because in jMAF there is: VCDomLEM.DEFAULT_CONSISTENCY_IN = RuleConstants.CONSISTENCY_IN_POS
+f) c1-ConfirmationMeasure rule statistic not written to *.rules file

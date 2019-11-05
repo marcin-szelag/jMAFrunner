@@ -14,8 +14,8 @@ cd ./scripts\
 jMAFrunner learning-data-file-path union-type consistency-level rule-type compatibility-mode?, e.g.:
 
 ?> jMAFrunner.bat "..\data\windsor.isf" standard 1.0 certain\
-?> jMAFrunner.bat "..\data\windsor.isf" monotonic 1.0 certain jmaf\
-?> jMAFrunner.bat "..\data\windsor.isf" standard 0.9 possible jrs
+?> jMAFrunner.bat "..\data\windsor.isf" monotonic 0.9 certain jmaf\
+?> jMAFrunner.bat "..\data\windsor.isf" standard 1.0 possible jrs
 
 **Parameters**:
 - learning-data-file-path - relative (with respect to *scripts* directory) or full path to ISF file with data used to induce decision rules
