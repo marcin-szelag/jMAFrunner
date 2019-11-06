@@ -1,15 +1,15 @@
 # jMAFrunner
 
-**Command-line tool extending functionality of jMAF (http://www.cs.put.poznan.pl/jblaszczynski/Site/jRS.html)**. Employs java Rough Sets library (http://www.cs.put.poznan.pl/mszelag/Software/software.html). jRS library is included as a separate JAR, compiled with Java 11.
+**Command-line tool extending functionality of jMAF ([http://www.cs.put.poznan.pl/jblaszczynski/Site/jRS.html](http://www.cs.put.poznan.pl/jblaszczynski/Site/jRS.html))**. Employs java Rough Sets library ([http://www.cs.put.poznan.pl/mszelag/Software/software.html](http://www.cs.put.poznan.pl/mszelag/Software/software.html)). jRS library is included as a separate JAR, compiled with Java 11.
 
-### `Configuration of text files in the project`:
+## `Configuration of text files in the project`:
 UTF-8 encoding<br/>
 LF line endings
 
-### `Building with gradle` (necessary before first calculations; requires Java 11 JDK):
+## `Building with gradle` (necessary before first calculations; requires Java 11 JDK (or higher)):
 **gradlew fatJar**
 
-### `Launching calculations (requires Java 11 JRE)`:
+## `Launching calculations` (requires Java 11 JRE (or higher)):
 cd ./scripts<br/>
 jMAFrunner learning-data-file-path union-type consistency-level rule-type compatibility-mode?, e.g.:
 
