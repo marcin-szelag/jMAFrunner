@@ -2,6 +2,14 @@
 
 **Command-line tool extending functionality of jMAF ([http://www.cs.put.poznan.pl/jblaszczynski/Site/jRS.html](http://www.cs.put.poznan.pl/jblaszczynski/Site/jRS.html))**. Employs java Rough Sets library ([http://www.cs.put.poznan.pl/mszelag/Software/software.html](http://www.cs.put.poznan.pl/mszelag/Software/software.html)). jRS library is included as a separate JAR, compiled with Java 11.
 
+jMAF, due to relying on an obsolete version of jRS library, can load data with missing values, but:
+- for a learning data set with missing values, it can't calculate approximations of unions of ordered decision classes,
+- for a learning data set with missing values, it can't induce decision rules,
+- it can't classify objects from a test set, if they contain missing values.
+
+The main idea for jMAFrunner is to use current version of jRS library to perform the first two steps (i.e., calculation of approximations and induction of rules) in batch mode.
+As a result, one gets an &ast;.apx file with calculated approximations and &ast;.rules file with induced rules. The last file can be then read directly in jMAF. This way, the rules obtained in batch mode can be analyzed directly in jMAF, and possibly later used also for classification of test set objects, provided that these objects do not contain missing values.
+
 ## `Configuration of text files in the project`:
 UTF-8 encoding<br/>
 LF line endings
