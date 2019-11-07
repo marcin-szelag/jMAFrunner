@@ -28,17 +28,19 @@ jMAFrunner learning-data-file-path union-type consistency-level rule-type compat
 **Parameters**:
 - learning-data-file-path - relative (with respect to *scripts* directory) or full path to ISF file with data used to induce decision rules
 - union-type - type of unions of decision classes; allowed values:
-  - monotonic
-  - standard
+    - monotonic
+    - standard
 - consistency-level - consistency threshold used to induce decision rules; should be inside interval [0.0, 1.0]; value 1.0 is the most restrictive one and corresponds to DRSA; value lower than 1.0 corresponds to VC-DRSA; the lower the threshold, the less restrictive
 - rule-type - type of induced decision rules; allowed values:
-  - certain
-  - possible
+    - certain
+    - possible
 - compatibility-mode - this is an optional parameter; allowed values:
-  - jmaf
-  - jrs
+    - jmaf
+    - jrs
 
 Default value of the last parameter is *jmaf*. If learning data contain missing attribute values, *jrs* compatibility mode is chosen automatically, so as to handle the learning data set properly (jMAF cannot process data with missing values).
+
+jMAFrunner (after jRS) supports only one adaptation of the Dominance-based Rough Set Approach (DRSA) to handle missing values - DRSA-mv<sub>2</sub>. More details can be found in [this conference paper](http://www.cs.put.poznan.pl/mszelag/Research/missingValuesIJCRS2017.pdf).
 
 Induced approximations and decision rules are written in the directory of the input ISF file. Name of the saved \*.apx and \*.rules files are chosen automatically and correspond to the name of the ISF file and chosen parameters, e.g., if the program is run in this way:
 
