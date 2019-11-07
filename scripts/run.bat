@@ -1,1 +1,1 @@
-jMAFrunner.bat "..\data\windsor-mv.isf" standard 1.0 certain
+jMAFrunner.bat "../data/windsor-mv.isf" standard 1.0 certain

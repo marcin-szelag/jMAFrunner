@@ -21,9 +21,9 @@ LF line endings
 cd ./scripts<br/>
 jMAFrunner learning-data-file-path union-type consistency-level rule-type compatibility-mode?, e.g.:
 
-?> jMAFrunner.bat "..\data\windsor.isf" standard 1.0 certain<br/>
-?> jMAFrunner.bat "..\data\windsor.isf" monotonic 0.9 certain jmaf<br/>
-?> jMAFrunner.bat "..\data\windsor.isf" standard 1.0 possible jrs
+?> jMAFrunner.bat "../data/windsor.isf" standard 1.0 certain<br/>
+?> jMAFrunner.bat "../data/windsor.isf" monotonic 0.9 certain jmaf<br/>
+?> jMAFrunner.bat "../data/windsor.isf" standard 1.0 possible jrs
 
 **Parameters**:
 - learning-data-file-path - relative (with respect to *scripts* directory) or full path to ISF file with data used to induce decision rules
@@ -38,10 +38,10 @@ jMAFrunner learning-data-file-path union-type consistency-level rule-type compat
   - jmaf
   - jrs
 
-Default value of the last parameter is *jmaf*. If learning data contain missing attribute values, *jrs* compatibility mode is chosen automatically, so as to handle the learning data properly (jMAF does not handle data with missing values, jRS does).
+Default value of the last parameter is *jmaf*. If learning data contain missing attribute values, *jrs* compatibility mode is chosen automatically, so as to handle the learning data set properly (jMAF cannot process data with missing values).
 
-Induced decision rules are written in the directory of the input ISF file. Name of the saved \*.rules file is chosen automatically and corresponds to the name of ISF file and chosen parameters, e.g., if program is run in this way:
+Induced approximations and decision rules are written in the directory of the input ISF file. Name of the saved \*.apx and \*.rules files are chosen automatically and correspond to the name of the ISF file and chosen parameters, e.g., if the program is run in this way:
 
-?> jMAFrunner.bat "..\data\windsor.isf" standard 1.0 certain
+?> jMAFrunner.bat "../data/windsor.isf" standard 1.0 certain
 
-then it will save file ..\data\windsor_standard_1.0_certain.rules.
+then it will save two files: ../data/windsor\_standard\_1.0.apx and ../data/windsor\_standard\_1.0_certain.rules.
